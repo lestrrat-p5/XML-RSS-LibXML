@@ -154,7 +154,9 @@ sub parse_channel
     foreach my $type qw(day hour) {
         my $field = 'skip' . ucfirst($type) . 's';
         if (my $skip = delete $h{$field}) {
-            if (! UNIVERSAL::isa($skip, 'XML::RSS::LibXML::ElementSpec')) {
+            if (ref $skip ne 'HASH') {
+                warn "field $field has invalid entry (does this RSS validate?)";
+            } elsif (! UNIVERSAL::isa($skip, 'XML::RSS::LibXML::ElementSpec')) {
                 $c->$field(UNIVERSAL::isa($skip, 'XML::RSS::LibXML::MagicElement') ? $skip : %$skip);
             }
         }
@@ -162,7 +164,9 @@ sub parse_channel
 
     foreach my $field qw(textinput image) {
         if (my $v = $h{$field}) {
-            if (! UNIVERSAL::isa($v, 'XML::RSS::LibXML::ElementSpec')) {
+            if (ref $v ne 'HASH') {
+                warn "field $field has invalid entry (does this RSS validate?)";
+            } elsif (! UNIVERSAL::isa($v, 'XML::RSS::LibXML::ElementSpec')) {
                 $c->$field(UNIVERSAL::isa($v, 'XML::RSS::LibXML::MagicElement') ? $v : %$v);
             }
         }
