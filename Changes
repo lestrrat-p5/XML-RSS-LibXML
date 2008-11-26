@@ -3,6 +3,17 @@ Changes
 
 Except where noted, all changes made by Daisuke Maki
 
+0.3003 - 26 Nov 2008
+  - Try not to die if we encountered a Broken <image> tag in RSS 2.0
+  - We won't test RSS 0.9x. This is due to the nature of libxml wanting to
+    validate the DTD, when the namespaces have been changed
+    (see http://blog.netscape.com/2008/01/22/rss-specifications-moving-to-rss-advisory-board/)
+    We could use a hackish fix, but we won't, as it may change the behavior
+    for this widely used format (which is surprisingly large number).
+    So instead, we'll just silence the tests, to stop odd failures from occurring
+  - For practical purposes, we use the old namespace unless asked
+    otherwise via XML_RSS_LIBXML_USE_NEW_RSS09 environment variable
+
 0.3002 - 08 Oct 2007
   - Apply fix from AAR (rt #29683) to make things work with XML::LibXML >= 1.64
 

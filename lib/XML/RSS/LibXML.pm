@@ -13,7 +13,7 @@ use XML::LibXML;
 use XML::LibXML::XPathContext;
 use XML::RSS::LibXML::Namespaces qw(NS_RSS10);
 
-our $VERSION = '0.3002';
+our $VERSION = '0.3003';
 
 __PACKAGE__->mk_accessors($_) for qw(impl encoding strict namespaces modules output stylesheets _internal num_items);
 
