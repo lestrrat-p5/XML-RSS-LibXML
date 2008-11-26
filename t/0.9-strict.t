@@ -5,7 +5,8 @@
 use strict;
 use warnings;
 
-use Test::More tests => 12;
+use Test::More;
+plan skip_all => q|Won't test RSS 0.9x. See Changes for details|;
 
 use XML::RSS::LibXML;
 

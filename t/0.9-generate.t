@@ -1,7 +1,7 @@
 use strict;
 
 use Test::More;
-plan tests => 1;
+plan skip_all => q|Won't test RSS 0.9x. See Changes for details|;
 
 ok(1, "More tests soon");
 

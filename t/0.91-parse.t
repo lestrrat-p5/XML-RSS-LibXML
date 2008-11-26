@@ -1,5 +1,6 @@
 use strict;
 use Test::More;
+plan skip_all => q|Won't test RSS 0.9x. See Changes for details|;
 
 use constant RSS_VERSION       => "0.91";
 use constant RSS_CHANNEL_TITLE => "Example 0.91 Channel";
@@ -22,8 +23,6 @@ use constant RSS_DOCUMENT      => qq(<?xml version="1.0"?>
      <description>something happened today</description>
   </item>
 </rss>);
-
-plan tests => 7;
 
 use_ok("XML::RSS::LibXML");
 
