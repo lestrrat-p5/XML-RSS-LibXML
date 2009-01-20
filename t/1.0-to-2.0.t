@@ -9,9 +9,11 @@ use Test::More tests => 8;
 
 use XML::RSS::LibXML;
 
-{
+SKIP: {
+    my $rssfile = File::Spec->catfile(File::Spec->curdir(), "t", "data", "merlyn1.rss");
+    skip("rt #42536", 2) if ! -f $rssfile;
     my $rss = XML::RSS::LibXML->new;
-    $rss->parsefile(File::Spec->catfile(File::Spec->curdir(), "t", "data", "merlyn1.rss"));
+    $rss->parsefile($rssfile);
 
     $rss->{output} = "2.0";
     my $string = $rss->as_string;
@@ -27,9 +29,11 @@ use XML::RSS::LibXML;
     );    
 }
 
-{
+SKIP: {
+    my $rssfile = File::Spec->catfile(File::Spec->curdir(), "t", "data", "merlyn1.rss");
+    skip("rt #42536", 2) if ! -f $rssfile;
     my $rss = XML::RSS::LibXML->new;
-    $rss->parsefile(File::Spec->catfile(File::Spec->curdir(), "t", "data", "merlyn1.rss"));
+    $rss->parsefile($rssfile);
 
     $rss->{output} = "0.91";
     my $string = $rss->as_string;
@@ -45,9 +49,12 @@ use XML::RSS::LibXML;
     );
 }
 
-{
+SKIP: {
+    my $rssfile = File::Spec->catfile(File::Spec->curdir(), "t", "data", "2.0","sf-hs-with-pubDate.rss");
+    skip("rt #42536", 2) if (! -f $rssfile);
+
     my $rss = XML::RSS::LibXML->new;
-    $rss->parsefile(File::Spec->catfile(File::Spec->curdir(), "t", "data", "2.0","sf-hs-with-pubDate.rss"));
+    $rss->parsefile($rssfile);
 
     $rss->{output} = "1.0";
     my $string = $rss->as_string;
@@ -66,9 +73,13 @@ use XML::RSS::LibXML;
     );
 }
 
-{
+SKIP: {
+    my $rssfile = File::Spec->catfile(File::Spec->curdir(), "t", "data", "2.0","sf-hs-with-lastBuildDate.rss");
+    skip("rt #42536", 2);
+
     my $rss = XML::RSS::LibXML->new;
-    $rss->parsefile(File::Spec->catfile(File::Spec->curdir(), "t", "data", "2.0","sf-hs-with-lastBuildDate.rss"));
+
+    $rss->parsefile($rssfile);
 
     $rss->{output} = "1.0";
     my $string = $rss->as_string;

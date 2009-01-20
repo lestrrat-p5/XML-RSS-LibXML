@@ -8,10 +8,12 @@ use Test::More tests => 7;
 use File::Spec;
 use XML::RSS::LibXML;
 
-{
+SKIP: {
+    my $rssfile = File::Spec->catfile(File::Spec->curdir(), "t", "data", "merlyn1.rss");
+    skip("rt #42536", 3) if ! -f $rssfile;
     my $rss = XML::RSS::LibXML->new();
 
-    $rss->parsefile(File::Spec->catfile(File::Spec->curdir(), "t", "data", "merlyn1.rss"));
+    $rss->parsefile($rssfile);
     {
         my $item = $rss->{items}->[0];
 
@@ -32,10 +34,12 @@ use XML::RSS::LibXML;
     }
 }
 
-{
+SKIP: {
+    my $rssfile = File::Spec->catfile(File::Spec->curdir(), "t", "data", "merlyn1.rss");
+    skip("rt #42536", 3) if ! -f $rssfile;
     my $rss = XML::RSS::LibXML->new(version => "2.0");
 
-    $rss->parsefile(File::Spec->catfile(File::Spec->curdir(), "t", "data", "merlyn1.rss"));
+    $rss->parsefile($rssfile);
 
     {
         my $item = $rss->{items}->[0];
