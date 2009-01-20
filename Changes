@@ -3,6 +3,11 @@ Changes
 
 Except where noted, all changes made by Daisuke Maki
 
+0.3004 - 20 Jan 2009
+  - rt #42536. Some files were removed from the distro for the time being.
+    (I don't have the time to re-create these for now -- patch submissions
+    are most welcome)
+
 0.3003 - 26 Nov 2008
   - Try not to die if we encountered a Broken <image> tag in RSS 2.0
   - We won't test RSS 0.9x. This is due to the nature of libxml wanting to
