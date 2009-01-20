@@ -1,7 +1,4 @@
 # $Id$
-#
-# Copyright (c) 2005-2007 Daisuke Maki <daisuke@endeworks.jp>
-# All rights reserved.
 
 package XML::RSS::LibXML;
 use strict;
@@ -36,7 +33,8 @@ sub new
         libxml_opts => $args{libxml_opts} || {
             recover => 1,
             load_ext_dtd => 0
-        }
+        },
+        'xml:base' => $args{'xml:base'},
     }, $class;
 
     $self->impl->reset($self);
