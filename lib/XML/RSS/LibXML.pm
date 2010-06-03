@@ -1,5 +1,3 @@
-# $Id$
-
 package XML::RSS::LibXML;
 use strict;
 use warnings;
@@ -104,22 +102,23 @@ sub create_impl
 {
     my $self = shift;
     my $version = shift;
+    my $module = "Null";
     if ($version) {
-        $version =~ s/\./_/g;
-        $version = "V$version";
-    } else {
-        $version = "Null";
+        $module = $version;
+        $module =~ s/\./_/g;
+        $module = "V$module";
     }
 
     my $pkg;
     REQUIRE: {
-        $pkg = "XML::RSS::LibXML::$version";
+        $pkg = "XML::RSS::LibXML::$module";
         eval {
             $pkg->require or die;
         };
         if (my $e = $@) {
             if ($e =~ /Can't locate/) {
-                $version = "V1_0";
+                $module = "V1_0";
+                $version = '1.0';
                 redo REQUIRE;
             }
         }
@@ -212,6 +211,7 @@ sub guess_version_from_dom
             last;
         }
     }
+
     if ($rss10_prefix && $rss10_prefix eq '#default') {
         $rss10_prefix = 'rss10';
         $namespaces->{$rss10_prefix} = NS_RSS10;
