@@ -3,6 +3,10 @@ Changes
 
 Except where noted, all changes made by Daisuke Maki
 
+0.3005 - 3 Jun 2010
+  - rt #58067 Document create_libxml() (theory)
+  - rt #58068 Add support for RSS 0.92 (theory)
+
 0.3004 - 20 Jan 2009
   - rt #42536. Some files were removed from the distro for the time being.
     (I don't have the time to re-create these for now -- patch submissions
