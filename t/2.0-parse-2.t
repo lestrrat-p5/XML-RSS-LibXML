@@ -12,7 +12,7 @@ my $rss = XML::RSS::LibXML->new();
 $rss->parse(<<"EOF");
 <?xml version="1.0" encoding="UTF-8" ?>
 <?xml-stylesheet href="/rss/news/journalism.xsl" type="text/xsl"?>
-<rss version="2.0">
+<rss version="2">
 <channel><title>Journalism - Topix.net</title>
 <link>http://www.topix.net/news/journalism</link>
 <description>News on Journalism from Topix.net</description>

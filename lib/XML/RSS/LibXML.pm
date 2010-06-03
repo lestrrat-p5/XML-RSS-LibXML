@@ -242,6 +242,7 @@ sub guess_version_from_dom
     } else {
         die "Failed to guess version";
     }
+    $version = "$1.0" if $version =~ /^(\d)$/;
     return $version;
 }
 
@@ -463,6 +464,11 @@ Instead of
   }
 
 In scalar context, returns the reference to the list of items.
+
+=head2 create_libxml()
+
+Creates, configures, and returns an XML::LibXML object. Used by C<parse()> to
+instantiate the parser used to parse the feed.
 
 =head1 PERFORMANCE
 
