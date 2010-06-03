@@ -1,28 +1,32 @@
 use strict;
 use Test::More;
-plan skip_all => q|Won't test RSS 0.9x. See Changes for details|;
 
-use constant RSS_VERSION       => "0.91";
-use constant RSS_CHANNEL_TITLE => "Example 0.91 Channel";
+use constant RSS_VERSION       => "0.9";
+use constant RSS_CHANNEL_TITLE => "Example 0.9 Channel";
 
 use constant RSS_DOCUMENT      => qq(<?xml version="1.0"?>
-<rss version="0.91">
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns="http://my.netscape.com/rdf/simple/0.9/">
+
   <channel>
-    <title>Example 0.91 Channel</title>
-    <link>http://example.com</link>
+    <title>Example 0.9 Channel</title>
+    <link>http://www.example.com</link>
     <description>To lead by example</description>
   </channel>
+  <image>
+    <title>Mozilla</title>
+    <url>http://www.example.com/images/whoisonfirst.gif</url>
+    <link>http://www.example.com</link>
+  </image>
   <item>
-     <title>News for September the Second</title>
-     <link>http://example.com/2002/09/02</link>
-     <description>other things happened today</description>
+    <title>News for September the second</title>
+    <link>http://www.example.com/2002/09/02</link>
   </item>
   <item>
-     <title>News for September the First</title>
-     <link>http://example.com/2002/09/01</link>
-     <description>something happened today</description>
+    <title>News for September the first</title>
+    <link>http://www.example.com/2002/09/01</link>
   </item>
-</rss>);
+</rdf:RDF>);
 
 use_ok("XML::RSS::LibXML");
 
@@ -51,7 +55,7 @@ my $ok = 1;
 
 foreach my $item (@{$xml->{items}}) {
 
-  foreach my $el ("title","link","description") {
+  foreach my $el ("title","link") {
     if (! exists $item->{$el}) {
       $ok = 0;
       last;
@@ -61,13 +65,15 @@ foreach my $item (@{$xml->{items}}) {
   last if (! $ok);
 }
 
-ok($ok,"All items have title,link and description elements");
+ok($ok,"All items have title and link elements");
+
+done_testing();
 
 __END__
 
 =head1 NAME
 
-0.91-parse.t - tests for parsing RSS 0.91 data with XML::RSS::LibXML.pm
+0.9-parse.t - tests for parsing RSS 0.90 data with XML::RSS::LibXML.pm
 
 =head1 SYNOPSIS
 
@@ -76,7 +82,7 @@ __END__
 
 =head1 DESCRIPTION
 
-Tests for parsing RSS 0.91 data with XML::RSS::LibXML.pm
+Tests for parsing RSS 0.90 data with XML::RSS::LibXML.pm
 
 =head1 VERSION
 
@@ -84,7 +90,7 @@ $Revision: 1.2 $
 
 =head1 DATE
 
-$Date: 2002/11/19 23:58:03 $
+$Date: 2002/11/20 00:01:44 $
 
 =head1 AUTHOR
 
@@ -92,8 +98,6 @@ Aaron Straup Cope
 
 =head1 SEE ALSO
 
-http://my.netscape.com/publish/formats/rss-spec-0.91.html
-
-http://backend.userland.com/rss091
+http://www.purplepages.ie/RSS/netscape/rss0.90.html
 
 =cut

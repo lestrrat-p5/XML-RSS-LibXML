@@ -1,14 +1,13 @@
 use strict;
 use Test::More;
-plan skip_all => q|Won't test RSS 0.9x. See Changes for details|;
 
-use constant RSS_VERSION       => "0.92";
-use constant RSS_CHANNEL_TITLE => "Example 0.92 Channel";
+use constant RSS_VERSION       => "0.91";
+use constant RSS_CHANNEL_TITLE => "Example 0.91 Channel";
 
 use constant RSS_DOCUMENT      => qq(<?xml version="1.0"?>
-<rss version="0.92">
+<rss version="0.91">
   <channel>
-    <title>Example 0.92 Channel</title>
+    <title>Example 0.91 Channel</title>
     <link>http://example.com</link>
     <description>To lead by example</description>
   </channel>
@@ -63,11 +62,14 @@ foreach my $item (@{$xml->{items}}) {
 
 ok($ok,"All items have title,link and description elements");
 
+done_testing();
+
+
 __END__
 
 =head1 NAME
 
-0.92-parse.t - tests for parsing RSS 0.92 data with XML::RSS::LibXML.pm
+0.91-parse.t - tests for parsing RSS 0.91 data with XML::RSS::LibXML.pm
 
 =head1 SYNOPSIS
 
@@ -76,7 +78,7 @@ __END__
 
 =head1 DESCRIPTION
 
-Tests for parsing RSS 0.92 data with XML::RSS::LibXML.pm
+Tests for parsing RSS 0.91 data with XML::RSS::LibXML.pm
 
 =head1 VERSION
 
@@ -92,8 +94,8 @@ Aaron Straup Cope
 
 =head1 SEE ALSO
 
-http://my.netscape.com/publish/formats/rss-spec-0.92.html
+http://my.netscape.com/publish/formats/rss-spec-0.91.html
 
-http://backend.userland.com/rss092
+http://backend.userland.com/rss091
 
 =cut

@@ -6,7 +6,6 @@ use strict;
 use warnings;
 
 use Test::More;
-plan skip_all => q|Won't test RSS 0.9x. See Changes for details|;
 
 use XML::RSS::LibXML;
 
@@ -192,3 +191,6 @@ sub item_throws_like
         "Testing for exception thrown on a key for 0.91"
     );
 }
+
+done_testing;
+
