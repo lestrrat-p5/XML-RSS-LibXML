@@ -15,4 +15,6 @@ requires 'XML::LibXML::XPathContext';
 
 auto_set_repository;
 auto_install;
+tests 't/*.t';
+author_tests 'xt';
 WriteAll;
