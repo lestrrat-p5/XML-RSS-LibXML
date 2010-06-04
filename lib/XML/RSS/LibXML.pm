@@ -21,6 +21,7 @@ sub new
     my $self = bless {
         impl       => $impl,
         version    => $args{version},
+        base       => $args{base},
         encoding   => $args{encoding} || 'UTF-8',
         strict     => exists $args{strict} ? $args{strict} : 0,
         namespaces => {},
@@ -32,7 +33,6 @@ sub new
             recover => 1,
             load_ext_dtd => 0
         },
-        'xml:base' => $args{'xml:base'},
     }, $class;
 
     $self->impl->reset($self);
@@ -68,6 +68,17 @@ sub version
         $self->internal('version', $_[0]);
     }
     return $version;
+}
+
+sub base
+{
+    my $self = shift;
+    my $base = $self->{base};
+    if (@_) {
+        $self->{base} = $_[0];
+        $self->internal('base', $_[0]);
+    }
+    return $base;
 }
 
 sub add_module
@@ -299,6 +310,7 @@ XML::RSS::LibXML - XML::RSS with XML::LibXML
   # XML::RSS::LibXML only methods
 
   my $version     = $rss->version;
+  my $base        = $rss->base;
   my $hash        = $rss->namespaces;
   my $list        = $rss->items;
   my $encoding    = $rss->encoding;
@@ -358,7 +370,7 @@ writing.
 
 For example, suppose you have a tag like the following:
 
-  <rss version="2.0">
+  <rss version="2.0" xml:base="http://example.com/">
   ...
     <channel>
       <tag attr1="val1" attr2="val3">foo bar baz</tag>
@@ -377,13 +389,14 @@ See L<XML::RSS::LibXML::MagicElement|XML::RSS::LibXML::MagicElement> for details
 
 =head2 new(%args)
 
-Creates a new instance of XML::RSS::LibXML. You may specify a version in the
-constructor args to control which output format as_string() will use.
+Creates a new instance of XML::RSS::LibXML. You may specify a version or an
+XML base in the constructor args to control which output format as_string()
+will use.
 
-  XML::RSS::LibXML->new(version => '1.0');
+  XML::RSS::LibXML->new(version => '1.0', base => 'http://example.com/');
 
-You can also specify the encoding that you expect this RSS object to use
-when creating an RSS string
+The XML base will be included only in RSS 2.0 output. You can also specify the
+encoding that you expect this RSS object to use when creating an RSS string
 
   XML::RSS::LiBXML->new(encoding => 'euc-jp');
 

@@ -136,6 +136,7 @@ sub parse_dom
 
     $c->reset;
     $c->version('2.0');
+    $self->parse_base($c, $dom);
     $self->parse_namespaces($c, $dom);
     $self->parse_channel($c, $dom);
     $self->parse_items($c, $dom);
@@ -244,6 +245,9 @@ sub create_rootelement
     my ($self, $c, $dom) = @_;
     my $root = $dom->createElement('rss');
     $root->setAttribute(version => '2.0');
+    if (my $base = $c->base) {
+        $root->setAttribute('xml:base' => $base);
+    }
     $dom->setDocumentElement($root);
 }
 

@@ -1,6 +1,6 @@
 use strict;
 use File::Spec;
-use Test::More tests => 27;
+use Test::More tests => 29;
 
 BEGIN {
   use_ok("XML::RSS::LibXML");
@@ -30,7 +30,7 @@ use constant RSS_ITEM_TITLE => "This is an item";
 use constant RSS_ITEM_LINK  => "http://example.com/" . &POSIX::strftime( DATE_TEMPLATE_SHORT, gmtime ); # "$short_date";
 use constant RSS_ITEM_DESC  => "Yadda yadda yadda - R&D;";
 
-my $rss = XML::RSS::LibXML->new( version => RSS_VERSION );
+my $rss = XML::RSS::LibXML->new( version => RSS_VERSION, base => 'http://yow.com/' );
 isa_ok( $rss, "XML::RSS::LibXML" );
 
 is( $rss->{'version'}, RSS_VERSION, 'Version is ' . RSS_VERSION );
@@ -121,6 +121,8 @@ is( $rss->{channel}->{category}, 'MyCategory', 'channel->{category}');
 
 cmp_ok( keys %{ $rss->{namespaces} }, ">=", 1,
        "RSS feed has at least one namespace");
+cmp_ok($rss->version, 'eq', RSS_VERSION, 'Should have the RSS version');
+cmp_ok($rss->base, 'eq', 'http://yow.com/', 'Should have the XML base');
 
 SKIP: {
     skip "TODO", 2;

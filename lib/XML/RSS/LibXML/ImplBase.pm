@@ -137,6 +137,17 @@ sub store_element
 
 sub parse_dom { }
 
+sub parse_base
+{
+    my ($self, $c, $dom) = @_;
+    my $xc = $c->create_xpath_context(scalar $c->namespaces);
+    if (my $b = $xc->findvalue('/rss/@xml:base', $dom)) {
+        $c->base($b);
+    } else {
+        $c->base(undef);
+    }
+}
+
 sub parse_namespaces
 {   
     my ($self, $c, $dom) = @_;
