@@ -24,8 +24,8 @@ sub new
     if (ref($attrs) eq 'ARRAY') {
         %attrs = map { (
             $_->prefix && $_->prefix ne 'xmlns' ?
-                sprintf('%s:%s', $_->prefix, $_->localname) :
-                $_->localname
+                sprintf('%s:%s', $_->prefix, $_->localname || '') :
+                $_->localname || ''
             , $_->getData
         ) } @$attrs;
         @attrs = map { $_->getName } @$attrs;
