@@ -1728,8 +1728,8 @@ SKIP: {
     );
 
     # TEST
-    not_contains($rss, "<item>\n",
-        '2.0 - Item without description or title is skipped'
+    contains($rss, "<item>\n",
+        '2.0 - Item without description or title is included'
     );
 }
 

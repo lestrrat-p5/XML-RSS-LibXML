@@ -115,19 +115,6 @@ sub definition
     };
 }
 
-sub add_item
-{
-    my $self = shift;
-    my $c    = shift;
-    my $h    = ref($_[0]) eq 'HASH' ? $_[0] : {@_};
-
-    if (! defined $h->{description} && ! defined $h->{title}) {
-        return;
-    }
-
-    $self->SUPER::add_item($c, $h);
-}
-
 sub parse_dom
 {
     my $self = shift;
