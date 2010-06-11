@@ -154,6 +154,7 @@ sub parse_dom
 
     $c->reset;
     $c->version('0.91');
+    $c->encoding($dom->encoding);
     $self->parse_namespaces($c, $dom);
     $self->parse_channel($c, $dom);
     $self->parse_items($c, $dom);

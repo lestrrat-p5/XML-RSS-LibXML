@@ -4,7 +4,7 @@ use Test::More;
 use constant RSS_VERSION       => "2.0";
 use constant RSS_CHANNEL_TITLE => "Example 2.0 Channel";
 
-use constant RSS_DOCUMENT      => qq(<?xml version="1.0"?>
+use constant RSS_DOCUMENT      => qq(<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xml:base="http://foo.com/">
  <channel>
   <title>Example 2.0 Channel</title>
@@ -43,7 +43,7 @@ use constant RSS_DOCUMENT      => qq(<?xml version="1.0"?>
  </channel>
 </rss>);
 
-plan tests => 9;
+plan tests => 10;
 
 use_ok("XML::RSS::LibXML");
 
@@ -57,6 +57,7 @@ cmp_ok($xml->{'_internal'}->{'version'},"eq",RSS_VERSION,"Is RSS version ".RSS_V
 cmp_ok($xml->{channel}->{'title'},"eq",RSS_CHANNEL_TITLE,"Feed title is ".RSS_CHANNEL_TITLE);
 cmp_ok(ref($xml->{items}),"eq","ARRAY","\$xml->{items} is an ARRAY ref");
 cmp_ok($xml->version, 'eq', RSS_VERSION, 'Version attribute should be set');
+cmp_ok($xml->encoding, 'eq', 'utf-8', 'Encoding should be set');
 cmp_ok($xml->base, 'eq', 'http://foo.com/', 'Base attribute should be set');
 
 my $ok = 1;

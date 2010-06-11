@@ -43,7 +43,7 @@ use constant RSS_DOCUMENT      => qq(<?xml version="1.0" encoding="UTF-8"?>
 </rdf:RDF>
 );
 
-plan tests => 8;
+plan tests => 9;
 
 use_ok("XML::RSS::LibXML");
 
@@ -57,6 +57,7 @@ cmp_ok($xml->{'_internal'}->{'version'},
        "eq",
        RSS_VERSION,
        "Is RSS version ".RSS_VERSION);
+is $xml->encoding, 'UTF-8', 'Encoding should be UTF-8';
 
 cmp_ok($xml->{namespaces}->{'#default'},
        "eq",

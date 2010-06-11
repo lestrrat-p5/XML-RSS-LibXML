@@ -99,6 +99,7 @@ sub parse_dom
 
     $c->reset;
     $c->version(0.9);
+    $c->encoding($dom->encoding);
     $self->parse_namespaces($c, $dom);
     $c->internal('prefix', 'rss09');
     # Check if we have non-default RSS namespace

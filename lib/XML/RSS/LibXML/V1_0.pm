@@ -43,6 +43,7 @@ sub parse_dom
 
     $c->reset;
     $c->version('1.0');
+    $c->encoding($dom->encoding);
     $self->parse_namespaces($c, $dom);
 
     $c->internal('prefix', 'rss10');

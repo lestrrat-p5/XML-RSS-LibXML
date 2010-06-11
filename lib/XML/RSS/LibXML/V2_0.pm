@@ -123,12 +123,14 @@ sub parse_dom
 
     $c->reset;
     $c->version('2.0');
+    $c->encoding($dom->encoding);
     $self->parse_base($c, $dom);
     $self->parse_namespaces($c, $dom);
     $self->parse_channel($c, $dom);
     $self->parse_items($c, $dom);
     $self->parse_misc_simple($c, $dom);
 }
+
 
 sub parse_channel
 {
