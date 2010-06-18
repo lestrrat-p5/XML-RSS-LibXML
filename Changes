@@ -6,6 +6,8 @@ Except where noted, all changes made by Daisuke Maki
 0.3006 - 
   - Add support for xml:base in RSS 2.0.
   - Parse and include items in RSS 2.0 feeds without a title or description.
+  - Parser recognizes elements that should not have children and stringifies
+    the children of such elements when it finds children.
 
 0.3005 - 3 Jun 2010
   - rt #58067 Document create_libxml() (theory)
