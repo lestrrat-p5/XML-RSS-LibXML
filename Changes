@@ -3,12 +3,16 @@ Changes
 
 Except where noted, all changes made by Daisuke Maki
 
-0.3006 - 
-  - Add support for xml:base in RSS 2.0.
-  - Parse and include items in RSS 2.0 feeds without a title or description.
-  - The encoding() method now returns the encoding of a parsed feed.
-  - Parser recognizes elements that should not have children and stringifies
-    the children of such elements when it finds children.
+0.3100 - 22 Jun 2010
+  * Bunch of changes by David Wheeler, granting a minor version++ :)
+    Note that changes about stringifying child elements may have affect
+    some users. Drop me a line if you have a problem.
+
+  - Add support for xml:base in RSS 2.0. (theory)
+  - Parse and include items in RSS 2.0 feeds without a title or description. (theory)
+  - The encoding() method now returns the encoding of a parsed feed. (theory)
+  - Parser recognizes elements that should not have children and stringifies 
+    the children of such elements when it finds children. (theory)
 
 0.3005 - 3 Jun 2010
   - rt #58067 Document create_libxml() (theory)
