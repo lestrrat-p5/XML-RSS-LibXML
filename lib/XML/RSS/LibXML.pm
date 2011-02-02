@@ -188,12 +188,10 @@ sub get_namespaces
         (($_->getLocalName() || '#default') => $_->getData)
     } $node->getNamespaces();
 
-#    while (my($p, $uri) = each %h) {
-#        my $prefix = XML::RSS::LibXML::Namespaces::lookup_prefix($uri);
-#        if ($prefix) {
-#            $h{$prefix} = $uri;
-#        }
-#    }
+    if ($h{rdf} && ! $h{'#default'}) {
+        $h{'#default'} = NS_RSS10;
+    }
+
     return wantarray ? %h : \%h;
 }
 
@@ -239,7 +237,6 @@ sub guess_version_from_dom
     # Test starting from the most likely candidate
     if (eval { $xc->findnodes('/rdf:RDF', $dom) }) {
         # 1.0 or 0.9.
-
         # Wrap up in evail, because we may not have registered rss10
         # namespace prefix
         if (eval { $xc->findnodes("/rdf:RDF/$rss10_prefix:channel", $dom) }) {
