@@ -13,6 +13,9 @@ use overload
 use vars qw($VERSION);
 $VERSION = '0.02';
 
+# Make UNIVERSAL::isa happy
+sub isa { __PACKAGE__ eq ($_[1] || '') } 
+
 sub new
 {
     my $class = shift;

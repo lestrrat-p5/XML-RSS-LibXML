@@ -8,7 +8,6 @@ use strict;
 use warnings;
 use base qw(Class::Accessor::Fast);
 use Carp qw(croak);
-use Scalar::Util qw(blessed);
 use XML::RSS::LibXML::MagicElement;
 use XML::RSS::LibXML::Namespaces;
 
@@ -127,7 +126,7 @@ sub store_element
     my ($self, $container, $name, $value) = @_;
 
     my $v = $container->{$name};
-    if (! $v || (blessed $v || '') eq 'XML::RSS::LibXML::ElementSpec') {
+    if (! $v || eval { $v->isa('XML::RSS::LibXML::ElementSpec') }) {
         $container->{$name} = $value;
     } elsif (ref($v) eq 'ARRAY') {
         push @$v, $value;
