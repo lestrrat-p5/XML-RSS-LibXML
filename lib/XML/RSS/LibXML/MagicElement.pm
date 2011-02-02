@@ -54,8 +54,7 @@ sub toString
     my $self = shift;
     return (defined $self->{_content} && length $self->{_content}) ?
         $self->{_content} :
-#        '';
-        join('', map {$self->{$_} } $self->attributes);
+        join('', map { $self->{$_} || '' } $self->attributes);
 }
 
 1;
