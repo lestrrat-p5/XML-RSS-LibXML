@@ -139,7 +139,7 @@ sub parse_channel
 
     my ($root) = $xc->findnodes('/rdf:RDF/rss09:channel', $dom);
     my %h = $self->parse_children($c, $root);
-    foreach my $field qw(textinput image) {
+    foreach my $field (qw(textinput image)) {
         delete $h{$field};
 #        if (my $v = $h{$field}) {
 #            $c->$field(UNIVERSAL::isa($v, 'XML::RSS::LibXML::MagicElement') ? $v : %$v);
@@ -274,7 +274,7 @@ sub create_channel
     $root->appendChild($channel);
 
     my $node;
-    foreach my $p qw(title link description) {
+    foreach my $p (qw(title link description)) {
         my $text = $c->{channel}{$p};
         next unless defined $text;
         $node = $dom->createElement($p);
@@ -305,7 +305,7 @@ sub create_item
 
     my $item = $dom->createElement('item');
     my $node;
-    foreach my $e qw(title link) {
+    foreach my $e (qw(title link)) {
         $node = $dom->createElement($e);
         $node->appendText($i->{$e});
         $item->addChild($node);

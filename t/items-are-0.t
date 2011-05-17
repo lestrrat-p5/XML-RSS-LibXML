@@ -405,7 +405,7 @@ sub match_elements
 }
 
 {
-    foreach my $version qw(0.9 0.91 1.0 2.0) {
+    foreach my $version (qw(0.9 0.91 1.0 2.0)) {
         my $rss = create_rss_1({version => $version});
         # TEST
         match_elements($rss, 'image', { url => 0, link => "http://freshmeat.net/", title => "freshmeat.net" });
@@ -413,7 +413,7 @@ sub match_elements
 }
 
 {
-    foreach my $version qw(0.9 0.91 1.0 2.0) {
+    foreach my $version (qw(0.9 0.91 1.0 2.0)) {
         my $rss = create_rss_1({version => $version, image_link => "0",});
         # TEST
         match_elements($rss, 'image', { url => 0, link => 0, title => "freshmeat.net" });
@@ -421,7 +421,7 @@ sub match_elements
 }
 
 {
-    foreach my $version qw(0.91 2.0) {
+    foreach my $version (qw(0.91 2.0)) {
         my $rss = create_rss_1({
                 version => $version, 
                 image_params => [width => 0, height => 0, description => 0],
@@ -554,7 +554,7 @@ SKIP:
 }
 
 {
-    foreach my $version qw(0.9 0.91 2.0) {
+    foreach my $version (qw(0.9 0.91 2.0)) {
         my $rss = create_no_image_rss({version => $version});
         # TEST
         not_contains($rss, "<textinput>",
@@ -564,7 +564,7 @@ SKIP:
 }
 
 {
-    foreach my $version qw(0.9 0.91) {
+    foreach my $version (qw(0.9 0.91)) {
         my $rss = create_textinput_with_0_rss({version => $version});
         # TEST
         match_elements($rss, 'textinput', { title => 0, description => 0, name => 0, link => 0 });

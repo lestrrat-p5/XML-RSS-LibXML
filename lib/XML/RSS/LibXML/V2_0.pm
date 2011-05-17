@@ -141,7 +141,7 @@ sub parse_channel
     my ($root) = $xc->findnodes('/rss/channel', $dom);
     my %h = $self->parse_children($c, $root, './*[name() != "item"]');
 
-    foreach my $type qw(day hour) {
+    foreach my $type (qw(day hour)) {
         my $field = 'skip' . ucfirst($type) . 's';
         if (my $skip = delete $h{$field}) {
             if (ref $skip ne 'HASH') {
@@ -152,7 +152,7 @@ sub parse_channel
         }
     }
 
-    foreach my $field qw(textinput image) {
+    foreach my $field (qw(textinput image)) {
         if (my $v = $h{$field}) {
             if (ref $v ne 'HASH') {
 #                warn "field $field has invalid entry (does this RSS validate?)";
@@ -249,7 +249,7 @@ sub create_channel
 
     $self->create_element_from_spec($c->channel, $dom, $channel, \%ChannelElements);
 
-    foreach my $type qw(day hour) {
+    foreach my $type (qw(day hour)) {
         my $field = 'skip' . ucfirst($type) . 's';
         my $skip = $c->$field;
         if ($skip && defined $skip->{$type}) {
