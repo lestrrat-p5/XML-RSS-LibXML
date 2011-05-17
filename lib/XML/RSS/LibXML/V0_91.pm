@@ -169,7 +169,7 @@ sub parse_channel
     my ($root) = $xc->findnodes('/rss/channel', $dom);
     my %h = $self->parse_children($c, $root);
 
-    foreach my $type qw(day hour) {
+    foreach my $type (qw(day hour)) {
         my $field = 'skip' . ucfirst($type) . 's';
         if (my $skip = delete $h{$field}) {
             $c->$field(%$skip);
@@ -248,7 +248,7 @@ sub create_channel
         }
     }
 
-    foreach my $type qw(day hour) {
+    foreach my $type (qw(day hour)) {
         my $field = 'skip' . ucfirst($type) . 's';
         my $skip = $c->$field;
         if ($skip && defined $skip->{$type}) {
