@@ -41,7 +41,7 @@ sub new
 
 {
     # Proxy methods
-    foreach my $method qw(reset channel image add_item textinput skipDays skipHours) {
+    foreach my $method (qw(reset channel image add_item textinput skipDays skipHours)) {
         no strict 'refs';
         *{$method} = sub { my $self = shift; $self->impl->$method($self, @_) };
     }
