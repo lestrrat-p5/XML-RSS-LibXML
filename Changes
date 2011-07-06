@@ -3,6 +3,11 @@ Changes
 
 Except where noted, all changes made by Daisuke Maki
 
+0.3101 - 06 Jul 2011
+  * Fix perl 5.14 qw() deprecation warnings (theory)
+  * Fix some edge case errors cause by isa / UNIVERSAL::isa
+  * Fix silly error detecting RSS 1.0
+
 0.3100 - 22 Jun 2010
   * Bunch of changes by David Wheeler, granting a minor version++ :)
     Note that changes about stringifying child elements may have affect
