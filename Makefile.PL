@@ -9,6 +9,7 @@ requires 'Class::Accessor::Fast';
 requires 'DateTime::Format::Mail';
 requires 'DateTime::Format::W3CDTF';
 requires 'Encode';
+requires 'Scalar::Util';
 requires 'UNIVERSAL::require';
 requires 'XML::LibXML', '1.66';
 requires 'XML::LibXML::XPathContext';
