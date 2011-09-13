@@ -89,7 +89,7 @@ sub add_module
     if ($args{prefix} eq '#default') {
         # no op
     } else {
-        $args{prefix} =~ /^[a-z_][a-zA-Z0-9.\-_]*$/
+        $args{prefix} =~ /^[a-zA-Z_][a-zA-Z0-9.\-_]*$/
             or croak "a namespace prefix should look like [a-z_][a-z0-9.\\-_]*";
     }
 

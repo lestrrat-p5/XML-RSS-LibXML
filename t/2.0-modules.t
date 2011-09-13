@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 use strict;
 
-use Test::More tests => 3;
+use Test::More tests => 4;
 use XML::RSS::LibXML;
 
 {
@@ -30,6 +30,18 @@ use XML::RSS::LibXML;
     # TEST
     like ($@, qr{\Aa namespace prefix should look like},
         "Testing for invalidty of / as a prefix char");
+}
+
+{
+    my $rss = XML::RSS::LibXML->new( version => '2.0' );
+    eval {
+        $rss->add_module(
+            prefix => 'Foobar',
+            uri => 'http://foobar.tld/foo/'
+        );
+    };
+    # TEST
+    ok !$@, "Testing for validity of ucfirst prefix";
 }
 
 {
