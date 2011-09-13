@@ -3,6 +3,10 @@ Changes
 
 Except where noted, all changes made by Daisuke Maki
 
+0.3102 - 14 Sep 2011
+  * Allow upper uppercase letters as first character of namespace prefix
+    [https://github.com/lestrrat/XML-RSS-LibXML/pull/2] (arc)
+
 0.3101 - 06 Jul 2011
   * Fix perl 5.14 qw() deprecation warnings (theory)
   * Fix some edge case errors cause by isa / UNIVERSAL::isa
