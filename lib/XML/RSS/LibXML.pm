@@ -227,6 +227,8 @@ sub guess_version_from_dom
         $root->setNamespace(NS_RSS10, $rss10_prefix, 0);
     }
 
+    keys %{$namespaces}; # reset iterator
+
     my $xc  = $self->create_xpath_context(
         # use the minimum required to guess
         $namespaces
