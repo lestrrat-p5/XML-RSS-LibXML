@@ -3,6 +3,12 @@ Changes
 
 Except where noted, all changes made by Daisuke Maki
 
+{{$NEXT}}
+
+0.3103 2014-02-22T08:31:41Z
+  * Iterate over hash using keys() instead of each() (reported by Dave O'Brien)
+  * Use Minilla for development
+
 0.3102 - 14 Sep 2011
   * Allow upper uppercase letters as first character of namespace prefix
     [https://github.com/lestrrat/XML-RSS-LibXML/pull/2] (arc)
