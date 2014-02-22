@@ -200,7 +200,8 @@ sub create_xpath_context
     my $self = shift;
     my $namespaces = shift || {};
     my $xc = XML::LibXML::XPathContext->new;
-    while ( my ($prefix, $namespace) = each %{ $namespaces } ) {
+    foreach my $prefix (keys %$namespaces) {
+        my $namespace = $namespaces->{$prefix};
         $xc->registerNs($prefix, $namespace);
     }
     return $xc;
