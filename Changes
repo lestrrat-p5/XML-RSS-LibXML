@@ -5,6 +5,9 @@ Except where noted, all changes made by Daisuke Maki
 
 {{$NEXT}}
 
+0.3104 2014-03-07T21:24:58Z
+  * Remove stray Makefile
+
 0.3103 2014-02-22T08:31:41Z
   * Iterate over hash using keys() instead of each() (reported by Dave O'Brien)
   * Use Minilla for development

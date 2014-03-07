@@ -51,7 +51,7 @@ such that it adheres to the XML::RSS interface.
 Use this module when you have severe performance requirements working with
 RSS files.
 
-# VERSION 0.3103
+# VERSION 0.3104
 
 The original XML::RSS has been evolving in fairly rapid manner lately,
 and that meant that there were a lot of features to keep up with.

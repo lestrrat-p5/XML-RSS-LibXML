@@ -4,7 +4,7 @@
       "-2007 Daisuke Maki <dmaki@cpan.org>, Tatsuhiko Miyagawa <miyagawa@bulknews.net>. All rights reserved."
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.11.0, CPAN::Meta::Converter version 2.132140",
+   "generated_by" : "Minilla/v0.11.1, CPAN::Meta::Converter version 2.132830",
    "license" : [
       "perl_5"
    ],
@@ -70,7 +70,7 @@
          "web" : "https://github.com/lestrrat/XML-RSS-LibXML"
       }
    },
-   "version" : "0.3103",
+   "version" : "0.3104",
    "x_contributors" : [
       "Miyagawa Tatsuhiko <miyagawa@bulknews.net>",
       "David E. Wheeler <david@justatheory.com>",
