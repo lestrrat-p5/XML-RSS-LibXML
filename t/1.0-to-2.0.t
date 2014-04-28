@@ -19,12 +19,16 @@ SKIP: {
     my $string = $rss->as_string;
 
     # TEST
-    ok (index($string, q{<lastBuildDate>Sat, 14 Oct 2006 21:15:36 -0000</lastBuildDate>}) >= 0,
+    like(
+        $string,
+        qr{<lastBuildDate>Sat, 14 Oct 2006 21:15:36 [+-]0000</lastBuildDate>},
         "Correct date was found",
     );
 
     # TEST
-    ok (index($string, q{<pubDate>Sat, 14 Oct 2006 21:15:36 -0000</pubDate>}) >= 0,
+    like(
+        $string,
+        qr{<pubDate>Sat, 14 Oct 2006 21:15:36 [+-]0000</pubDate>},
         "Correct pubDate was found",
     );    
 }
@@ -39,12 +43,16 @@ SKIP: {
     my $string = $rss->as_string;
 
     # TEST
-    ok (index($string, qq{<pubDate>Sat, 14 Oct 2006 21:15:36 -0000</pubDate>}) >= 0,
+    like(
+        $string,
+        qr{<pubDate>Sat, 14 Oct 2006 21:15:36 [+-]0000</pubDate>},
         "Correct date was found in 1.0 -> 0.91 conversion (pubDate)",
     );
 
     # TEST
-    ok (index($string, qq{<lastBuildDate>Sat, 14 Oct 2006 21:15:36 -0000</lastBuildDate>}) >= 0,
+    like(
+        $string,
+        qr{<lastBuildDate>Sat, 14 Oct 2006 21:15:36 [+-]0000</lastBuildDate>},
         "Correct date was found in 1.0 -> 0.91 conversion (lastBuildDate)",
     );
 }
