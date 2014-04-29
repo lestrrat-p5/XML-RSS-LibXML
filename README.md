@@ -51,7 +51,7 @@ such that it adheres to the XML::RSS interface.
 Use this module when you have severe performance requirements working with
 RSS files.
 
-# VERSION 0.3104
+# VERSION 0.3105
 
 The original XML::RSS has been evolving in fairly rapid manner lately,
 and that meant that there were a lot of features to keep up with.
@@ -101,7 +101,7 @@ All of the fields in this construct can be accessed like so:
     $rss->channel->{tag}{attr1} # "val1"
     $rss->channel->{tag}{attr2} # "val2"
 
-See [XML::RSS::LibXML::MagicElement](http://search.cpan.org/perldoc?XML::RSS::LibXML::MagicElement) for details.
+See [XML::RSS::LibXML::MagicElement](https://metacpan.org/pod/XML::RSS::LibXML::MagicElement) for details.
 
 # METHODS
 
@@ -262,7 +262,7 @@ to have tests that do more extensive testing for correctness
 
 # SEE ALSO
 
-[XML::RSS](http://search.cpan.org/perldoc?XML::RSS), [XML::LibXML](http://search.cpan.org/perldoc?XML::LibXML), [XML::LibXML::XPathContext](http://search.cpan.org/perldoc?XML::LibXML::XPathContext)
+[XML::RSS](https://metacpan.org/pod/XML::RSS), [XML::LibXML](https://metacpan.org/pod/XML::LibXML), [XML::LibXML::XPathContext](https://metacpan.org/pod/XML::LibXML::XPathContext)
 
 # COPYRIGHT AND LICENSE
 

@@ -11,7 +11,7 @@ use overload
     fallback => 1
 ;
 use vars qw($VERSION);
-$VERSION = '0.3104';
+$VERSION = '0.3105';
 
 # Make UNIVERSAL::isa happy
 sub isa { __PACKAGE__ eq ($_[1] || '') } 

@@ -5,6 +5,10 @@ Except where noted, all changes made by Daisuke Maki
 
 {{$NEXT}}
 
+0.3105 2014-04-29T22:31:01Z
+  * Fix tests for timestamps displaying [+-]0000 
+    [https://github.com/lestrrat/XML-RSS-LibXML/issues/5] (eserte)
+
 0.3104 2014-03-07T21:24:58Z
   * Remove stray Makefile
 

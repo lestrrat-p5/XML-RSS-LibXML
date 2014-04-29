@@ -8,7 +8,7 @@ use XML::LibXML;
 use XML::LibXML::XPathContext;
 use XML::RSS::LibXML::Namespaces qw(NS_RSS10);
 
-our $VERSION = '0.3104';
+our $VERSION = '0.3105';
 
 __PACKAGE__->mk_accessors($_) for qw(impl encoding strict namespaces modules output stylesheets _internal num_items);
 
@@ -333,7 +333,7 @@ such that it adheres to the XML::RSS interface.
 Use this module when you have severe performance requirements working with
 RSS files.
 
-=head1 VERSION 0.3104
+=head1 VERSION 0.3105
 
 The original XML::RSS has been evolving in fairly rapid manner lately,
 and that meant that there were a lot of features to keep up with.
