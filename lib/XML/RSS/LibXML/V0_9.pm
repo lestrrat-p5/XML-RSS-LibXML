@@ -5,6 +5,7 @@
 
 package XML::RSS::LibXML::V0_9;
 use strict;
+use warnings;
 use base qw(XML::RSS::LibXML::ImplBase);
 use Carp qw(croak);
 use XML::RSS::LibXML::Namespaces qw(NS_RSS09 NS_RDF);

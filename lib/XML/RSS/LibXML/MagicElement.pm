@@ -5,6 +5,7 @@
 
 package XML::RSS::LibXML::MagicElement;
 use strict;
+use warnings;
 use overload 
     bool => sub { 1 },
     '""' => \&toString,
